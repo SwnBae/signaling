@@ -9,7 +9,6 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateRoomRequest {
-    private Long creatorId;
-    private Long guestId;
+public class RegistRequest {
+    private String name;
 }

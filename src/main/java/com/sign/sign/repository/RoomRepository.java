@@ -22,7 +22,11 @@ public class RoomRepository {
     }
 
     public Optional<Room> findByRoomId(String roomId) {
-        return Optional.ofNullable(em.find(Room.class, roomId));
+        return Optional.ofNullable(
+                em.createQuery("SELECT r FROM Room r WHERE r.roomId = :roomId", Room.class)
+                        .setParameter("roomId", roomId)
+                        .getSingleResult()
+        );
     }
 
     public void remove(Room room) {

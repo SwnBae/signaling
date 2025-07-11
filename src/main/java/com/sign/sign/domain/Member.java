@@ -1,5 +1,6 @@
 package com.sign.sign.domain;
 
+import com.sign.sign.dto.request.RegistRequest;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -18,4 +19,10 @@ public class Member extends BaseEntity {
     private long id;
 
     private String name;
+
+    public static Member create(RegistRequest registRequest){
+        Member member = new Member();
+        member.name = registRequest.getName();
+        return member;
+    }
 }
